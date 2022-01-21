@@ -1,0 +1,42 @@
+.shpBTN {
+  display: block;
+  margin: 30% auto;
+  background-color: transparent;
+  border: solid 2px transparent;
+}
+
+.h1 {
+  height: 300px;
+  object-fit: cover;
+}
+
+.shpBTN:hover {
+  background-color: white;
+  color: black;
+  font-size: large;
+  border: solid 1px black;
+}
+@media screen and (max-width: 992px) {
+  .shpBTN {
+    display: block;
+    margin: 40% auto;
+    background-color: transparent;
+    border: solid 0px transparent;
+  }
+}
+@media screen and (max-width: 768px) {
+  .shpBTN {
+    display: block;
+    margin: 20% auto;
+    background-color: transparent;
+    border: solid px transparent;
+  }
+}
+@media screen and (max-width: 450px) {
+  .shpBTN {
+    display: block;
+    margin: 40% auto;
+    background-color: transparent;
+    border: solid 1px black;
+  }
+}

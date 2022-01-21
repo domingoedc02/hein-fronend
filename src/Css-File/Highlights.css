@@ -1,0 +1,42 @@
+.highlights {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+}
+
+@media screen and (max-width: 992px) {
+  .c1 {
+    height: 100%;
+    width: 100%;
+  }
+  .c2 {
+    height: 100%;
+    width: 100%;
+  }
+  .c3 {
+    height: 100%;
+    width: 100%;
+  }
+  .c4 {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .c1 {
+    height: 100%;
+    width: 90%;
+  }
+  .c2 {
+    height: 100%;
+    width: 100%;
+  }
+  .c3 {
+    height: 100%;
+    width: 100%;
+  }
+  .c4 {
+    height: 100%;
+    width: 100%;
+  }
+}

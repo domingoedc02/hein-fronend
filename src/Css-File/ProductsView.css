@@ -1,0 +1,234 @@
+.cards .text {
+  display: -webkit-box;
+  height: 95px;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.cards {
+  border: solid 1.5px;
+}
+.name {
+  margin: 10px auto;
+}
+.line {
+  border-bottom: 1px solid black;
+  margin: 10px 0;
+}
+
+.category {
+  margin: 10px 0px;
+  background: #dadada;
+}
+.category .button1 {
+  display: block;
+  margin: 5px 5px;
+  width: 100%;
+}
+.category .button2 {
+  display: block;
+  margin: 5px 5px;
+  width: 100%;
+}
+.category .button3 {
+  display: block;
+  margin: 5px 5px;
+  width: 100%;
+}
+.category .button4 {
+  display: block;
+  margin: 5px 5px;
+  width: 100%;
+}
+.image-bg {
+  background-color: white;
+}
+.images {
+  width: 100%;
+  height: 230px;
+  display: block;
+  margin: 5px auto;
+  object-fit: scale-down;
+  background: white;
+}
+.cards {
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  width: 100%;
+  background-color: #0f0e0e;
+  height: auto;
+}
+.sale {
+  text-decoration: line-through;
+  font-size: 12px;
+}
+.modals {
+  width: 100%;
+  height: auto;
+}
+.modalImg {
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 300px;
+  padding: 20px;
+}
+.modalTitle {
+  padding-left: 100px;
+}
+.modalDetails {
+  height: 250px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  display: block;
+}
+@media screen and (max-width: 992px) {
+  .modals {
+    height: 550px;
+  }
+}
+/* 
+@media screen and (min-width: 1150px) {
+  .images {
+    width: auto;
+    height: 230px;
+    display: block;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    display: block;
+    padding: 10px;
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .images {
+    width: auto;
+    height: 180px;
+    display: block;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    display: block;
+    padding: 10px;
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .images {
+    width: auto;
+    height: 250px;
+    display: block;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    margin: 10px 10px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 901px) {
+  .images {
+    width: auto;
+    height: 230px;
+    display: block;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    margin: 10px 10px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .images {
+    width: auto;
+    height: 200px;
+    display: block;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    margin: 10px 10px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 795px) {
+  .images {
+    width: auto;
+    height: 180px;
+    display: block;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    margin: 10px 10px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .images {
+    width: auto;
+    height: 350px;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 625px) {
+  .images {
+    width: 180px;
+    height: 250px;
+    margin: 5px auto;
+    object-fit: contain;
+    background: white;
+  }
+  .cards {
+    margin: 10px 10px;
+    width: 100%;
+  }
+} */
+@media screen and (max-width: 576px) {
+  .category .button1 {
+    display: inline;
+    margin: 5px 5px;
+    width: auto;
+  }
+  .category .button2 {
+    display: inline;
+    margin: 5px 5px;
+    width: auto;
+  }
+  .category .button3 {
+    display: inline;
+    margin: 5px 5px;
+    width: auto;
+  }
+  .category .button4 {
+    display: inline;
+    margin: 5px 5px;
+    width: auto;
+  }
+}
+.dropdown-toggle::after {
+  display: none !important;
+}

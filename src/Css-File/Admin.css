@@ -1,0 +1,60 @@
+.createForm {
+  display: block;
+  margin: 0 auto;
+}
+
+.table {
+  width: auto;
+  height: 500px;
+  overflow: auto;
+  display: block;
+  table-layout: auto;
+}
+.table-img {
+  height: 150px;
+  width: 150px;
+  padding: 0 5px;
+}
+.tables {
+  width: 200px;
+}
+.tables-desc {
+  width: 300px;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.updateImage {
+  height: 350px;
+  width: 250px;
+}
+.updateForm {
+  height: 350px;
+  overflow: scroll;
+  display: block;
+}
+.archiveButton {
+  margin: 5px 0;
+  background-color: #e6c700;
+  border: 1px solid #b39b00;
+}
+.deleteButton {
+  margin: 5px 0;
+  background-color: #ce2f1a;
+  border: 1px solid #8d0000;
+}
+.activateButton {
+  margin: 5px 0;
+  background-color: #74b61e;
+  border: 1px solid #0fb300;
+}
+@media screen and (max-width: 770px) {
+  .navs {
+    display: block;
+    margin: auto;
+  }
+  .col-nav {
+    display: none;
+  }
+}

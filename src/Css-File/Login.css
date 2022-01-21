@@ -1,0 +1,14 @@
+.column {
+  display: block;
+  margin: 100px auto;
+}
+
+.form {
+  background: #6b7368;
+  padding: 20px;
+}
+
+.form h1 {
+  display: block;
+  margin: 0 auto;
+}
