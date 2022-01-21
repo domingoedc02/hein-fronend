@@ -53,7 +53,7 @@ export default function Login(){
                 })
             }
         })
-        console.log(user.id)
+        // console.log(user.id)
 
     }
     const userDetails = () => {
@@ -63,7 +63,7 @@ export default function Login(){
 		})
 		.then(response => response.json())
 		.then(data => {
-			console.log(data)
+			// console.log(data)
 
 			//use setUser() to update the state
             setUser({

@@ -82,7 +82,7 @@ export default function ProductsView(){
         viewCart()
         localStorage.setItem("cart", cartCount)
         
-    }, [addToCart])
+    }, [])
     
     
     
@@ -108,7 +108,7 @@ export default function ProductsView(){
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                
                 setProducts(data)
             })
         } else if(branding.brand !== "all" && branding.category !== "all"){

@@ -44,7 +44,7 @@ export default function Admin(){
     const [updatePrice, setUpdatePrice] = useState("")
     const [updateCategory, setUpdateCategory] = useState("")
     const [updateBranch, setUpdateBranch] = useState("")
-    const [updateFileName, setUpdateFileName] = useState();
+    // const [updateFileName, setUpdateFileName] = useState();
     const [updateSaleStat, setUpdateSaleSat] = useState({
         updateStatusOfSale: false,
         updateDiscount: null
@@ -171,28 +171,28 @@ export default function Admin(){
     }, [productID])
 
 
-    useEffect(() => {
-        console.log(updateFileName)
-        if( updateFileName !== "" ){
-             const formData = new FormData()
-            formData.append('file', updateFileName)
-                formData.append('upload_preset', 'h5iebdtn')
+//     useEffect(() => {
+//         // console.log(updateFileName)
+//         if( updateFileName !== "" ){
+//              const formData = new FormData()
+//             formData.append('file', updateFileName)
+//                 formData.append('upload_preset', 'h5iebdtn')
 
-                fetch('https://api.cloudinary.com/v1_1/dj3fnzbzl/image/upload',{
-                    method:"POST",
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.secure_url)
+//                 fetch('https://api.cloudinary.com/v1_1/dj3fnzbzl/image/upload',{
+//                     method:"POST",
+//                     body: formData,
+//                 })
+//                 .then(response => response.json())
+//                 .then(data => {
+//                     console.log(data.secure_url)
                     
                     
-                    setUpdateImageURL(data.secure_url)
+//                     setUpdateImageURL(data.secure_url)
         
            
-    })
-}        
-    }, [updateFileName])
+//     })
+// }        
+//     }, [])
 
     const searchProduct = async () => {
         console.log(productID)
@@ -253,7 +253,6 @@ export default function Admin(){
                 brand: updateBrand,
                 category: updateCategory,
                 branchType: updateBranch,
-                img: updateImageURL,
                 onSale : updateSaleStat
             })
         })
@@ -505,7 +504,7 @@ export default function Admin(){
                                                             <td className="tables">{(items.branchType === "sale") ? <>{items.branchType +"\n"+ items.onSale.discount + "%"}</>:<>{items.branchType}</>}</td>
                                                             <td className="tables">
                                                                 {<Fragment>
-                                                                    {console.log(productID)}
+                                                                    
                                                                     <Button href="#Update-Product"  onClick={(e) => {setProductID(items._id); searchProduct();}}>Update</Button> 
                                                                     <Button className="archiveButton" onClick={(e) => {setProductID(items._id); archiveButton();}}>Archive</Button>   
                                                                 </Fragment>}
@@ -582,14 +581,14 @@ export default function Admin(){
                                                     <Form.Label>Price</Form.Label>
                                                     <Form.Control type="number" placeholder="name@example.com" value={updatePrice} onChange={(e) => setUpdatePrice(e.target.value)}/>
                                                 </Form.Group>
-                                                <Form.Group>
+                                                {/* <Form.Group>
                                                         <Form.Label>Upload Image:   </Form.Label>
                                                             <input type="file"
                                                             id="avatar" name="avatar"
                                                             accept="image/png, image/jpeg" 
                                                             onChange={(e) => setUpdateFileName(e.target.files[0])}>
                                                             </input>
-                                                    </Form.Group>
+                                                    </Form.Group> */}
                                                     <Form.Group className="mb-3">
                                                         <Form.Label>Brand</Form.Label>
                                                         <Form.Select id="disabledSelect" value={updateBrand} onChange={(e) => setUpdateBrand(e.target.value)}>

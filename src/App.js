@@ -41,7 +41,7 @@ function App() {
     useEffect(() => {
       
       if(token !== null){
-        fetch("http://localhost:4000/users/details", {
+        fetch("https://domingo-capstone2.herokuapp.com/users/details", {
         })
         .then(response => response.json())
         .then(data => {
