@@ -1,3 +1,17 @@
-.col {
+.cartImg {
+  height: 200px;
+  width: 200px;
+}
+.button {
+  display: inline;
+  padding: 0px 10px;
+}
+.App {
+  text-align: center;
+}
+.tables {
+  display: inline-block;
   margin: 0 auto;
+  overflow-x: hidden;
+  width: 1000px;
 }

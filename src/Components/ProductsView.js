@@ -9,12 +9,15 @@ import './../Css-File/ProductsView.css'
 
 
 export default function ProductsView(){
+
+    
+
     const [products, setProducts] = useState([])
-    const {branding, user, setCartItems} = useContext(UserContext)
+    const {branding, user} = useContext(UserContext)
     const [productData, setProductData] = useState({})
 
+    
 
-    const [cartCount, setCartCount] = useState(0)
     
     const [show, setShow] = useState(false);
 
@@ -24,7 +27,8 @@ export default function ProductsView(){
     
 
     const addToCart = () =>{
-        if(user.isAdmin !== true){
+        if(user.id !== null){
+            if(user.isAdmin !== true ){
                 fetch("https://domingo-capstone2.herokuapp.com/product/add-to-cart",{
                         method: "POST",
                         headers: {
@@ -32,7 +36,9 @@ export default function ProductsView(){
                         },
                         body: JSON.stringify({
                             userId: user.id,
-                            cartItems: productData._id
+                            cartItems: productData._id,
+                            quantity: 1,
+                            subtotal: productData.price
                     })
                 })
                 .then(response => response.json())
@@ -45,50 +51,33 @@ export default function ProductsView(){
                 timer: 3000
             })
 
-            
-            
+                
+                
+            } else{
+                Swal.fire({
+                    title: "Added Failed",
+                    icon: "error",
+                    text: "Only consumer can add to cart",
+                    timer: 3000
+                })
+            }
         } else{
-             Swal.fire({
+            Swal.fire({
                 title: "Added Failed",
                 icon: "error",
-                text: "Only consumer can add to cart",
+                text: "Please login before you add in cart",
                 timer: 3000
             })
         }
     }
 
-    const viewCart = () => {
-                    fetch("https://domingo-capstone2.herokuapp.com/product/view-cart",{
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    userId: user.id
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                setCartCount(data.length)
-                
-                setCartItems(data)
-
-                
-            })
-    }
-
-
-    useEffect(() => {
-        viewCart()
-        localStorage.setItem("cart", cartCount)
-        
-    }, [])
     
     
     
 
     const fetchData = () => {
         if(branding.brand === "all" && branding.category === "all"){
+            document.title = `"HEiN | ${branding.brand}`
             fetch("https://domingo-capstone2.herokuapp.com/product/active-products",{
             })
             .then(response => response.json())
@@ -96,7 +85,7 @@ export default function ProductsView(){
                 setProducts(data)
             })
         } else if(branding.brand !== "all" && branding.category === "all"){
-           
+           document.title = `"HEiN | ${branding.brand}`
             fetch("https://domingo-capstone2.herokuapp.com/product/get-brands", {
                 method: "POST",
                 headers: {
@@ -112,6 +101,7 @@ export default function ProductsView(){
                 setProducts(data)
             })
         } else if(branding.brand !== "all" && branding.category !== "all"){
+            document.title = `"HEiN | ${branding.brand}`
              fetch("https://domingo-capstone2.herokuapp.com/product/get-both", {
                 method: "POST",
                 headers: {
@@ -180,7 +170,7 @@ export default function ProductsView(){
                                                                 </Col>
                                                                 <Col lg={6} className="modalDetails">
                                                                     <h5 className="mt-3">Name: {productData.name}</h5>
-                                                                    <h6 className="my-0 ">Brad: {productData.brand}</h6>
+                                                                    <h6 className="my-0 ">Brand: {productData.brand}</h6>
                                                                     <h6 className="my-0">Category: {productData.category}</h6>
                                                                     {(productData.branchType === "sale") ?<> 
                                                                     <h6  className="">Price: <span className="sale">Php {productData.price}</span> Php {parseInt(productData.price) - ((parseInt(productData.onSale.discount) / 100) * parseInt(productData.price) )}</h6></>: <><h6 className="">Price: Php {productData.price}</h6></>}

@@ -1,7 +1,6 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-
 import Routes from './Components/Routes';
 import { UserProvider } from './UserContext';
 import { useEffect, useState } from 'react';
@@ -13,7 +12,9 @@ import { useEffect, useState } from 'react';
 function App() {
 
   let token = localStorage.getItem("token")
-  const [cartItems, setCartItems] = useState()
+  const [cartItems, setCartItems] = useState({
+      productIds: []
+  })
   
     
 
@@ -63,6 +64,7 @@ function App() {
 
   return (
     <UserProvider value={{user, setUser, unsetUser, branding, setBranding, cartItems, setCartItems}}>
+        
         <Routes/>
     </UserProvider>
       

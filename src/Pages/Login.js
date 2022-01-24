@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 export default function Login(){
 
-    
+    document.title = "HEiN | Login"
     
     
     const [email, setEmail] = useState("")

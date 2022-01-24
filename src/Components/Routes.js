@@ -13,8 +13,9 @@ import { useContext } from "react";
 import UserContext from "../UserContext";
 import Admin from "../Pages/Admin";
 import ProductsView from "./ProductsView";
-// import Cart from "./Cart";
+import Cart from "./Cart";
 import ErrorPage from "../Pages/ErrorPage";
+import Transaction from "../Pages/Transaction";
 
 
 export default function Routes(){
@@ -49,7 +50,8 @@ export default function Routes(){
                         <Route exact path="/" component={Home} 
                             
                         />
-                        {/* <Route exact path={`/cart/${user.username}`} component={Cart}/> */}
+                        <Route exact path={'/transaction-details'} component={Transaction}/>
+                        <Route exact path={`/cart`} component={Cart}/>
                         <Route exact path={`/balenciaga/${branding.category}`} component={ProductsView} />
                         <Route exact path={`/prada/${branding.category}`} component={ProductsView} />
                         <Route exact path={`/ralph-lauren/${branding.category}`} component={ProductsView} />

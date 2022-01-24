@@ -45,4 +45,4 @@ export default function Highlights(){
             </Carousel.Item>
         </Carousel>
     )
-}
+} 

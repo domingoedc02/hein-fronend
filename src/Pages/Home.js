@@ -12,6 +12,8 @@ import ProductsView from "../Components/ProductsView"
 
 export default function Home(){
 
+    document.title = "HEiN | Home"
+
     // const [imageFile, setImageFile] = useState("");
     // console.log(imageFile)
     // function submit(e){

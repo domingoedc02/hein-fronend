@@ -11,6 +11,8 @@ import Swal from "sweetalert2";
 
 export default function Register(){
 
+    document.title = "HEiN | Register"
+
     const [firstName , setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [userName, setUserName] = useState("")

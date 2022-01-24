@@ -1,7 +1,7 @@
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap"
+import { Container, Nav, NavDropdown, Navbar} from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 import './../Css-File/AppNavbar.css'
-import { Fragment, useContext } from "react"
+import { Fragment, useContext, useEffect, useState } from "react"
 import cart from './../Images/shopping-cart.png'
 import loginLogo from './../Images/login.png'
 import UserContext from "./../UserContext"
@@ -9,12 +9,84 @@ import UserContext from "./../UserContext"
 
 
 
+
 export default function AppNavbar(){
-    const {user, setBranding} = useContext(UserContext)
- 
+    const {user, setBranding, setCartItems} = useContext(UserContext)
+    const [productId, setProductId] = useState([])
+    const [cartCount, setCartCount] = useState(localStorage.getItem("cart"))
+    const [cartData, setCartData] = useState([])
+    let cartArr = [] 
+
     
+
+    const getProduct = () =>{
+        fetch("https://domingo-capstone2.herokuapp.com/product/view-cart",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userId: user.id
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // setProductId(data)
+            let arr = data.map(items => {
+                return items.cartItems
+            })
+            setProductId(arr)
+            // localStorage.setItem("cart", `${data.length}`)
+        })
+    }
+    useEffect(() => {
+        getProduct()
+        setCartCount(productId.length)
+        localStorage.setItem("cart", cartCount)
+        count()
+    }, [getProduct])
+
+
+
+     function cartClick(){
+        
+         
+        productId.forEach(element => {
+            fetch("https://domingo-capstone2.herokuapp.com/product/get-product", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: element
+                })
+            })
+            .then(response => response.json())
+            .then(data => cartArr.push(data))
+            
+        })
+        setCartData(cartArr)
+        setCartItems({
+            productIds: cartData
+        })
+                                        
+     }
      
 
+     function count(){
+         return localStorage.getItem("cart")
+     }
+
+    //  useEffect(() => {
+    //      if(cartData !== []){
+    //          cartData.map(items => {
+    //                                         console.log(items.name)
+    //                                 return <Cart kay={items._id} {...items}/>
+                                    
+    //                             })
+          
+    //      }
+    //  })
 
    
     
@@ -31,10 +103,10 @@ export default function AppNavbar(){
     let adminDashboard = (user.isAdmin === true) ?
         <Fragment>
             <NavDropdown.Item as={NavLink} to="/admin-dashboard">Admin Dashboard</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Transaction Details</NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/transaction-details">Transaction Details</NavDropdown.Item>
         </Fragment>
     :
-        <NavDropdown.Item href="#action/3.2">Transaction Details</NavDropdown.Item>
+        <NavDropdown.Item as={NavLink} to="/transaction-details">Transaction Details</NavDropdown.Item>
     
 
     let userNav = (token === null) ?
@@ -60,11 +132,9 @@ export default function AppNavbar(){
                 
                     <Nav>
                         <>
-                        {/* <Nav.Link as={NavLink} to={`/cart/${user.username}`}> */}
-                            <a href={`/cart/${user.username}`}  className="logo-img " >
-                                {localStorage.getItem("cart")} <img src={cart} alt="Logo" className="img" ></img>
-                            </a>
-                        {/* </Nav.Link> */}
+                        <Nav.Link as={NavLink} to={"/cart"} onClick={() => cartClick()} className="logo-img ">
+                                {count()} <img src={cart} alt="Logo" className="img" ></img>
+                        </Nav.Link>
                             
                         
 
