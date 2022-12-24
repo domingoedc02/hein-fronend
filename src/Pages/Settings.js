@@ -47,7 +47,7 @@ export default function Settings(){
     }
 
     useEffect(() => {
-        fetch("http://localhost:4000/users/get-users", {
+        fetch("https://hein-server.herokuapp.com/users/get-users", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -122,7 +122,7 @@ export default function Settings(){
 
     const UpdateInfo =() => {
         if(updateEmail !== "" && updateFirstName !== "" && updateUsername !== "" && updateLastName !== ""){
-            fetch('http://localhost:4000/users/update-user', {
+            fetch('https://hein-server.herokuapp.com//users/update-user', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -169,8 +169,8 @@ export default function Settings(){
             <Container >
                 <Row>
                     <Col lg="3" md="2" sm="2" xs="4">
-                        <Button className="button" href={"http://localhost:3000/settings/personal-info/"+user.id}>Personal Info</Button>
-                        <Button className="button" href={"http://localhost:3000/settings/change-password/"+user.id}>Change Password</Button>
+                        <Button className="button" href={"https://hein.domingoec.com/settings/personal-info/"+user.id}>Personal Info</Button>
+                        <Button className="button" href={"https://hein.domingoec.com/settings/change-password/"+user.id}>Change Password</Button>
                         
                     </Col >
                     {/* Personal Info */}

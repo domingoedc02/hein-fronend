@@ -39,7 +39,7 @@ export default function Cart(){
 
     if (window.performance) {
         if (performance.navigation.type == 1) {
-            window.location.href="http://localhost:3000/home"
+            window.location.href="https://hein.domingoec.com/home"
         }
     }
 
@@ -158,7 +158,7 @@ export default function Cart(){
                     })
                     setTimeout(function(){
                         // localStorage.setItem("cartItemsCount", JSON.stringify(0))
-                        window.location.href = "http://localhost:3000/cart"
+                        window.location.href = "https://hein.domingoec.com/home"
                     }, 1000)
                     
                 }
