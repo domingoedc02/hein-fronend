@@ -9,19 +9,23 @@ import Login from "../Pages/Login";
 import Home from "../Pages/Home";
 import Register from "../Pages/Register";
 import Logout from "../Pages/Logout";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../UserContext";
 import Admin from "../Pages/Admin";
 import ProductsView from "./ProductsView";
 import Cart from "./Cart";
 import ErrorPage from "../Pages/ErrorPage";
 import Transaction from "../Pages/Transaction";
+import Settings from "../Pages/Settings";
+import Settings2 from "../Pages/Settings2";
+import Footer from "./Footer";
 
 
 export default function Routes(){
 
     const {user} = useContext(UserContext)
     const {branding} = useContext(UserContext)
+    const [isLogin, setIsLogin] = useState()
 
         // let path = window.location.pathname
         // let pathSplit = path.split("/")
@@ -40,6 +44,15 @@ export default function Routes(){
 
 
     let userLogIn = (user.id !== null);
+    useEffect(() => {
+        if(user.id !== null){
+            setIsLogin(true)
+        } else{
+            setIsLogin(false)
+        }
+    }, [isLogin, user])
+
+    console.log(branding.category)
 
     return(
         <BrowserRouter>
@@ -47,9 +60,9 @@ export default function Routes(){
                 <Container fluid className="">
                     <Switch>
                         
-                        <Route exact path="/" component={Home} 
-                            
-                        />
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/home" component={Home} />
+
                         <Route exact path={'/transaction-details'} component={Transaction}/>
                         <Route exact path={`/cart`} component={Cart}/>
                         <Route exact path={`/balenciaga/${branding.category}`} component={ProductsView} />
@@ -57,18 +70,21 @@ export default function Routes(){
                         <Route exact path={`/ralph-lauren/${branding.category}`} component={ProductsView} />
                         <Route exact path={`/versace/${branding.category}`} component={ProductsView} />
                         <Route exact path="/register" component={Register} >
-                            {userLogIn ? <Redirect to="/"/> : <Register/>}
+                            {isLogin ? <Redirect to="/home"/> : <Register/>}
                         </Route>
                         <Route exact path="/login" component={Login} >
-                            {userLogIn ? <Redirect to="/"/> : <Login/>}
+                            {isLogin ? <Redirect to="/home"/> : <Login/>}
                         </Route>
                         <Route exact path="/logout" component={Logout}/>
+                        <Route exact path={"/settings/personal-info/"+user.id} component={Settings}/>
+                        <Route exact path={"/settings/change-password/"+user.id} component={Settings2}/>
                         <Route exact path="/admin-dashboard" component={Admin}>
                             {(user.isAdmin !== true) ?<Redirect to="/"/> : <Admin/>}
                         </Route>
                         <Route component={ErrorPage}/>
                     </Switch>
                 </Container>
+                <Footer/>
         </BrowserRouter>
     )
 }

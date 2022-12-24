@@ -7,6 +7,7 @@
 
 .h1 {
   height: 300px;
+  display: block;
   object-fit: cover;
 }
 
@@ -39,4 +40,11 @@
     background-color: transparent;
     border: solid 1px black;
   }
+}
+.imgCover:hover{
+  opacity: 50%;
+  object-fit: none;
+}
+.h1:hover{
+  object-fit: none;
 }

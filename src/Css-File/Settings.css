@@ -1,0 +1,30 @@
+.button{
+    display: block;
+    background-color: transparent;
+    color: black;
+    border: 0px;
+    margin-top: 10px;
+}
+.form{
+    width: 75%;
+    display: block;
+    margin: 0px auto;
+}
+.editBtn{
+    display: block;
+    margin: 5px auto;
+    width: 100px;
+}
+.updateBtn {
+    display: block;
+    margin: 5px auto;
+    width: 100px;
+}
+.warn{
+    color: red;
+}
+.changePassBtn {
+    display: block;
+    margin: 5px auto;
+    width: 150px;
+}

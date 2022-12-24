@@ -1,0 +1,91 @@
+
+.bList{
+    color: white;
+    display: block;
+    margin: 10px 0;
+    /* text-align: center; */
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #28282B, 0 01px white;
+    padding-left: 10px;
+}
+.bList:hover{
+    display: block;
+    text-decoration: underline;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+
+}
+.brand{
+    color: white;
+    display: block;
+    /* text-align: center; */
+    margin-bottom: 20px;
+}
+.sList{
+    display: block;
+    margin: 10px 0; 
+    /* text-align: center; */
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #28282B, 0 01px white;
+    padding-left: 10px;
+}
+.socials{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.sList:hover {
+    display: block;
+    text-decoration: underline;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+    .socials{
+        color: white;
+    }
+    // .logo{
+    //     color: black;
+    // }
+}
+
+/* .fCol{
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+} */
+.cList{
+    color: white;
+}
+.heinLogo{
+    color: white;
+    font-size: 65px;
+    text-align: center;
+}
+.info{
+    color: white;
+    text-align: center;
+}
+.footerRow{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+}
+.copyright{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 0 10px;
+}
+.copyright:hover{
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+.copyr{
+    text-align: center;
+}
+.crightRow{
+    padding: 2px;
+}

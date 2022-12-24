@@ -1,6 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+
 import Routes from './Components/Routes';
 import { UserProvider } from './UserContext';
 import { useEffect, useState } from 'react';
@@ -26,7 +27,12 @@ function App() {
   const [user, setUser] = useState({
               id: null,
               isAdmin: null,
-              username: null
+              username: null,
+              firstName: null,
+              lastName: null,
+              password: null,
+              email: null
+
           })
 
   const unsetUser = () => {
@@ -35,14 +41,18 @@ function App() {
           setUser({
             id: null,
             isAdmin: null,
-            username: null
+            username: null,
+            firstName: null,
+            lastName: null,
+            password: null,
+            email: null
           })
     }
 
     useEffect(() => {
       
       if(token !== null){
-        fetch("https://domingo-capstone2.herokuapp.com/users/details", {
+        fetch("https://hein-server.herokuapp.com/users/details", {
         })
         .then(response => response.json())
         .then(data => {
@@ -53,7 +63,11 @@ function App() {
               setUser({
                 id: data._id,
                 isAdmin: data.isAdmin,
-                username: data.userName
+                username: data.userName,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                password: data.password,
+                email: data.email
               })
             }
         })

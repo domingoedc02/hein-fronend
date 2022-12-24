@@ -1,6 +1,9 @@
 .cartImg {
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0px auto;
+  border: 2px solid rgba(56, 56, 61, 0.2);
 }
 .button {
   display: inline;
@@ -14,4 +17,63 @@
   margin: 0 auto;
   overflow-x: hidden;
   width: 1000px;
+}
+.cartRow{
+  width: 70%;
+  margin: 20px auto;
+  border-bottom: 1px solid black;
+}
+.cartCategory{
+  display: block;
+  text-align: center;
+}
+.cartItemsRow {
+  width: 70%;
+  margin: 20px auto;
+  box-shadow: 8px 8px 10px 1px rgba(56, 56, 61, 0.2);
+}
+
+.deleteBtn{
+  display: block;
+  margin: 45% auto;
+}
+.txt{
+  display: block;
+  margin: 45% 10px;
+}
+.App .button{
+  display: inline-block;
+  margin: 45% 5px;
+}
+.totalTxt{
+  display: block;
+}
+.lastRow{
+  width: 70%;
+  display: block;
+  margin: 20px auto;
+  border-top: 1px solid black;
+  padding-top: 50px;
+
+}
+/* .voiceAmount{
+  padding-top: 50px;
+  padding-left: 500px;
+} */
+.checkoutBtn{
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+}
+.am{
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+.validate{
+  display: inline-block;
+}
+.addressForm{
+  display: block;
+  width: 400px;
+  margin: 10px auto;
 }

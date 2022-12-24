@@ -23,12 +23,13 @@ export default function Register(){
     const [invalidEmail, setInvalidEmail] = useState("")
     const [registered, setRegistered] = useState(false)
 
+
     const[isDisable, setIsDisable] = useState(true)
     
     
 
     useEffect( () => {
-        fetch("https://domingo-capstone2.herokuapp.com/users/get-users", {
+        fetch("https://hein-server.herokuapp.com/users/get-users", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -129,7 +130,7 @@ export default function Register(){
     function Register(e){
         e.preventDefault()
 
-        fetch("https://domingo-capstone2.herokuapp.com/users/registration", {
+        fetch("https://hein-server.herokuapp.com/users/registration", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

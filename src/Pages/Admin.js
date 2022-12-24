@@ -109,7 +109,7 @@ export default function Admin(){
 
 
 
-        fetch("https://domingo-capstone2.herokuapp.com/product/create-product",{
+        fetch("https://hein-server.herokuapp.com/product/create-product",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -146,7 +146,7 @@ export default function Admin(){
     }
     
     useEffect(() => {
-        fetch('https://domingo-capstone2.herokuapp.com/product/active-products', {
+        fetch('https://hein-server.herokuapp.com/product/active-products', {
             method: "GET"
         })
         .then(response => response.json())
@@ -154,7 +154,7 @@ export default function Admin(){
             setAllProducts(data)
         })
 
-        fetch('https://domingo-capstone2.herokuapp.com/product/inactive-products', {
+        fetch('https://hein-server.herokuapp.com/product/inactive-products', {
             method: "GET"
         })
         .then(response => response.json())
@@ -197,7 +197,7 @@ export default function Admin(){
     const searchProduct = async () => {
         console.log(productID)
        if(productID !== ""){
-            await fetch('https://domingo-capstone2.herokuapp.com/product/get-product', {
+            await fetch('https://hein-server.herokuapp.com/product/get-product', {
             method: "POST",
             headers:{
                 "Content-Type": "application/json"
@@ -240,7 +240,7 @@ export default function Admin(){
 
 
         if(productID !== "" && updateName !== "" && updateDesc !== "" && updatePrice !== "" && updateBrand !== "" && updateCategory !== "" && updateBranch !== "" && updateImageURL !== "" ){
-            fetch('https://domingo-capstone2.herokuapp.com/product/update-product', {
+            fetch('https://hein-server.herokuapp.com/product/update-product', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -281,7 +281,7 @@ export default function Admin(){
     const archiveButton = () => {
 
         if(productID !== ""){
-            fetch("https://domingo-capstone2.herokuapp.com/product/archive-products",{
+            fetch("https://hein-server.herokuapp.com/product/archive-products",{
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -302,7 +302,7 @@ export default function Admin(){
     const activateButton = () => {
 
         if(productID !== ""){
-            fetch("https://domingo-capstone2.herokuapp.com/product/activate-products",{
+            fetch("https://hein-server.herokuapp.com/product/activate-products",{
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -322,7 +322,7 @@ export default function Admin(){
     const deleteButton = () => {
 
         if(productID !== ""){
-            fetch("https://domingo-capstone2.herokuapp.com/product/delete-products",{
+            fetch("https://hein-server.herokuapp.com/product/delete-products",{
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

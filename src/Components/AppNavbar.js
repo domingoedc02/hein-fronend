@@ -11,16 +11,13 @@ import UserContext from "./../UserContext"
 
 
 export default function AppNavbar(){
-    const {user, setBranding, setCartItems} = useContext(UserContext)
+    const {user, setBranding} = useContext(UserContext)
     const [productId, setProductId] = useState([])
     const [cartCount, setCartCount] = useState(localStorage.getItem("cart"))
-    const [cartData, setCartData] = useState([])
-    let cartArr = [] 
-
     
 
     const getProduct = () =>{
-        fetch("https://domingo-capstone2.herokuapp.com/product/view-cart",{
+        fetch("https://hein-server.herokuapp.com/product/view-cart",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -35,7 +32,9 @@ export default function AppNavbar(){
             let arr = data.map(items => {
                 return items.cartItems
             })
-            setProductId(arr)
+            let newArr = [...new Set(arr)]
+
+            setProductId(newArr)
             // localStorage.setItem("cart", `${data.length}`)
         })
     }
@@ -48,29 +47,48 @@ export default function AppNavbar(){
 
 
 
-     function cartClick(){
+    
+    //  function cartClick(){
         
          
-        productId.forEach(element => {
-            fetch("https://domingo-capstone2.herokuapp.com/product/get-product", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    id: element
-                })
-            })
-            .then(response => response.json())
-            .then(data => cartArr.push(data))
+    //     productId.forEach(element => {
+    //         fetch("https://hein-server.herokuapp.com/product/get-product", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             },
+    //             body: JSON.stringify({
+    //                 id: element
+    //             })
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => cartArr.push(data))
             
-        })
-        setCartData(cartArr)
-        setCartItems({
-            productIds: cartData
-        })
+    //     })
+    //     setCartData(cartArr)
+
+    //     const uniqueIds = [];
+    //     const uniqueIds2 = [];
+
+    //     const unique = cartData.filter(element => {
+    //         const isDuplicate = uniqueIds.includes(element.id);
+    //         if (!isDuplicate) {
+    //             uniqueIds.push(element.id);
+
+    //             return true;
+    //         } else{
+    //             uniqueIds2.push(element);
+    //             return false
+    //         }
+
+            
+    //     });
+
+    //     setCartItems({
+    //         productIds: uniqueIds2
+    //     })
                                         
-     }
+    //  }
      
 
      function count(){
@@ -104,9 +122,13 @@ export default function AppNavbar(){
         <Fragment>
             <NavDropdown.Item as={NavLink} to="/admin-dashboard">Admin Dashboard</NavDropdown.Item>
             <NavDropdown.Item as={NavLink} to="/transaction-details">Transaction Details</NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to={"/settings/personal-info/"+user.id}>Settings</NavDropdown.Item>
         </Fragment>
     :
-        <NavDropdown.Item as={NavLink} to="/transaction-details">Transaction Details</NavDropdown.Item>
+        <Fragment>
+            <NavDropdown.Item as={NavLink} to={"/settings/personal-info/"+user.id}>Settings</NavDropdown.Item>
+            <NavDropdown.Item as={NavLink} to="/transaction-details">Transaction Details</NavDropdown.Item>
+        </Fragment>
     
 
     let userNav = (token === null) ?
@@ -132,7 +154,7 @@ export default function AppNavbar(){
                 
                     <Nav>
                         <>
-                        <Nav.Link as={NavLink} to={"/cart"} onClick={() => cartClick()} className="logo-img ">
+                        <Nav.Link as={NavLink} to={"/cart"} className="logo-img ">
                                 {count()} <img src={cart} alt="Logo" className="img" ></img>
                         </Nav.Link>
                             
