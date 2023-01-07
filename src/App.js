@@ -52,7 +52,7 @@ function App() {
     useEffect(() => {
       
       if(token !== null){
-        fetch("https://hein-server.herokuapp.com/users/details", {
+        fetch("https://hein-server.domingoec.net/users/details", {
         })
         .then(response => response.json())
         .then(data => {

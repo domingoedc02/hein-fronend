@@ -29,7 +29,7 @@ export default function Register(){
     
 
     useEffect( () => {
-        fetch("https://hein-server.herokuapp.com/users/get-users", {
+        fetch("https://hein-server.domingoec.net/users/get-users", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -130,7 +130,7 @@ export default function Register(){
     function Register(e){
         e.preventDefault()
 
-        fetch("https://hein-server.herokuapp.com/users/registration", {
+        fetch("https://hein-server.domingoec.net/users/registration", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

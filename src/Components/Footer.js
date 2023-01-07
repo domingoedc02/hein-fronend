@@ -21,28 +21,28 @@ export default function Footer(){
                     </Col>
                     <Col className="fCol" >
                         <h4 className="brand" >Brands</h4>
-                        <a className="bList">Prada</a>
-                        <a className="bList">Versace</a>
-                        <a className="bList">Ralph Lauren</a>
-                        <a className="bList">Balenciaga</a>
+                        <a className="bList" href="/home">Prada</a>
+                        <a className="bList" href="/home">Versace</a>
+                        <a className="bList" href="/home">Ralph Lauren</a>
+                        <a className="bList" href="/home">Balenciaga</a>
                     </Col>
                     <Col className="fCol">
                         <h4 className="brand">Social Media</h4>
                         <div className="sList">
                             <Facebook color="white"  size={25}/>
-                            <a className="socials">Facebook</a>
+                            <a className="socials" href="/home"> Facebook</a>
                         </div>
                         <div className="sList">
                             <Twitter color="white" size={25}/>
-                            <a className="socials">Twitter</a>
+                            <a className="socials" href="/home">Twitter</a>
                         </div > 
                         <div className="sList">
                             <Instagram color="white" size={25}/>
-                            <a className="socials">Instagram</a> 
+                            <a className="socials" href="/home">Instagram</a> 
                         </div>
                         <div className="sList">
                             <Github color="white" size={25}/>
-                            <a className="socials">Github</a>
+                            <a className="socials" href="/home">Github</a>
                         </div>
                     </Col>
                     <Col>
@@ -57,7 +57,7 @@ export default function Footer(){
                     <Col>
                         <div className="copyr">
                             <CCircle color="white"/>
-                            <a className="copyright">2022 HEiN Clothing Inc.</a>
+                            <a className="copyright" href="/home">2022 HEiN Clothing Inc.</a>
                         </div>
                     </Col>
                 </Row>

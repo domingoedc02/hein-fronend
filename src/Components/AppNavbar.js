@@ -17,7 +17,7 @@ export default function AppNavbar(){
     
 
     const getProduct = () =>{
-        fetch("https://hein-server.herokuapp.com/product/view-cart",{
+        fetch("https://hein-server.domingoec.net/product/view-cart",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

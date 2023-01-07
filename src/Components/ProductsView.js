@@ -29,7 +29,7 @@ export default function ProductsView(){
     const addToCart = () =>{
         if(user.id !== null){
             if(user.isAdmin !== true ){
-                fetch("https://hein-server.herokuapp.com/product/add-to-cart",{
+                fetch("https://hein-server.domingoec.net/product/add-to-cart",{
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -78,7 +78,7 @@ export default function ProductsView(){
     const fetchData = () => {
         if(branding.brand === "all" && branding.category === "all"){
             document.title = `"HEiN | ${branding.brand}`
-            fetch("https://hein-server.herokuapp.com/product/active-products",{
+            fetch("https://hein-server.domingoec.net/product/active-products",{
             })
             .then(response => response.json())
             .then(data => {
@@ -86,7 +86,7 @@ export default function ProductsView(){
             })
         } else if(branding.brand !== "all" && branding.category === "all"){
            document.title = `"HEiN | ${branding.brand}`
-            fetch("https://hein-server.herokuapp.com/product/get-brands", {
+            fetch("https://hein-server.domingoec.net/product/get-brands", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -102,7 +102,7 @@ export default function ProductsView(){
             })
         } else if(branding.brand !== "all" && branding.category !== "all"){
             document.title = `"HEiN | ${branding.brand}`
-             fetch("https://hein-server.herokuapp.com/product/get-both", {
+             fetch("https://hein-server.domingoec.net/product/get-both", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

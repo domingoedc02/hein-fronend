@@ -21,7 +21,7 @@ export default function Login(){
     function Login(e){
         e.preventDefault()
         
-        fetch("https://hein-server.herokuapp.com/users/login", {
+        fetch("https://hein-server.domingoec.net/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -59,7 +59,7 @@ export default function Login(){
     const userDetails = () => {
 
 		//send request to the server
-		fetch("https://hein-server.herokuapp.com/users/details", {
+		fetch("https://hein-server.domingoec.net/users/details", {
 		})
 		.then(response => response.json())
 		.then(data => {

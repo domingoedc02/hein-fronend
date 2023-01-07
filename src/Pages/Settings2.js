@@ -49,7 +49,7 @@ export default function Settings2(){
         console.log(user.id)
         if(currentPassword === user.password){
             
-            fetch('https://hein-server.herokuapp.com/users/update-user', {
+            fetch('https://hein-server.domingoec.net/users/update-user', {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -67,7 +67,7 @@ export default function Settings2(){
                     timer: 2000
                 })
                 setTimeout(function() {
-                    window.location.href = "http://localhost:3000/home"
+                    window.location.href = "/home"
                 }, 1000);
                 
         } else{
@@ -86,8 +86,8 @@ export default function Settings2(){
             <Container >
                 <Row>
                     <Col lg="3" md="2" sm="2" xs="4">
-                        <Button className="button" href={"https://hein.domingoec.com/settings/personal-info/"+user.id}>Personal Info</Button>
-                        <Button className="button" href={"https://hein.domingoec.com/settings/change-password/"+user.id}>Change Password</Button>
+                        <Button className="button" href={"/settings/personal-info/"+user.id}>Personal Info</Button>
+                        <Button className="button" href={"/settings/change-password/"+user.id}>Change Password</Button>
                         
                     </Col >
                     {/* Personal Info */}

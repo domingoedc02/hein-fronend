@@ -39,7 +39,7 @@ export default function Cart(){
 
     if (window.performance) {
         if (performance.navigation.type == 1) {
-            window.location.href="https://hein.domingoec.com/home"
+            window.location.href="/home"
         }
     }
 
@@ -47,7 +47,7 @@ export default function Cart(){
         setEmail(user.email)
         localStorage.setItem("cartItemsCount", JSON.stringify(loopCount+1))
         if(loopCount < 5){
-            fetch("https://hein-server.herokuapp.com/product/view-cart",{
+            fetch("https://hein-server.domingoec.net/product/view-cart",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -77,7 +77,7 @@ export default function Cart(){
                 sessionStorage.setItem("Total Amount", 0)
                 let tempX = 0
                 productIds.forEach(element => {
-                    fetch("https://hein-server.herokuapp.com/product/get-product", {
+                    fetch("https://hein-server.domingoec.net/product/get-product", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
@@ -138,7 +138,7 @@ export default function Cart(){
        
     const deleteCart = () =>{
         if(cartId !== ""){
-            fetch("https://hein-server.herokuapp.com/product/delete-cart", {
+            fetch("https://hein-server.domingoec.net//product/delete-cart", {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
@@ -158,7 +158,7 @@ export default function Cart(){
                     })
                     setTimeout(function(){
                         // localStorage.setItem("cartItemsCount", JSON.stringify(0))
-                        window.location.href = "https://hein.domingoec.com/home"
+                        window.location.href = "/home"
                     }, 1000)
                     
                 }
